@@ -32,14 +32,13 @@ class chat_model:
             verbose=True, 
             memory=ConversationBufferWindowMemory(k=4)
         )
-
-    def converse(self, input):
         self.conversation.prompt.template = '''The following is a friendly conversation between a human and an AI called Dolly. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know. 
 
         Current conversation:
         {history}
         Human: {input}
-        AI:'''
+        AI:'''        
 
+    def converse(self, input):
         self.conversation.predict(input=input)
         return self.conversation(input)
