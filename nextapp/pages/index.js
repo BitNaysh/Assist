@@ -116,7 +116,7 @@ export default function Home() {
       </div>
 
       <div className='flex flex-row'>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <main className={styles.main}>
         <div className = {styles.cloud}>
           <div ref={messageListRef} className = {styles.messagelist}>
