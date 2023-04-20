@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import CircularProgress from '@mui/material/CircularProgress';
-import Sidebar from './Sidebar'
+import Sidebar from '../Components/Sidebar'
 
 export default function Chats() {
 
@@ -67,7 +67,7 @@ export default function Chats() {
     // Reset user input
     setUserInput("");
     const data = await response.json();
-    console.log(data.result.answer)
+    console.log(data.result.detail)
     if (data.result.error === "Unauthorized") {
       handleError();
       return;

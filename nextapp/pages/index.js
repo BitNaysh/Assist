@@ -1,11 +1,17 @@
 import Head from "next/head"
+import Link from "next/link"
+import { useRouter } from "next/router"
 import Chats from "./chats"
-import Sidebar from "./Sidebar"
-import NavTop from "./NavTop"
+import Visualize from "./visualize"
+import Sidebar from "../Components/Sidebar"
+import NavTop from "../Components/NavTop"
 
 export default function Home() {
+  const router = useRouter()
 
-  
+  const handleSidebarLinkClick = (route) => {
+    router.push(route)
+  }
 
   return (
     <>
@@ -18,15 +24,22 @@ export default function Home() {
       <NavTop />
       <div className="flex">
         <div>
-          <Sidebar />
+          <Sidebar>
+            <ul>
+              <li onClick={() => handleSidebarLinkClick("/")}>
+                <a>Chat</a>
+              </li>
+              <li onClick={() => handleSidebarLinkClick("/visualize")}>
+                <a>Visualize</a>
+              </li>
+            </ul>
+          </Sidebar>
         </div>
         <div>
-          <Chats />
+          {router.pathname === "/" ? <Chats /> : null}
+          {router.pathname === "/visualize" ? <Visualize /> : null}
         </div>
       </div>
-      
-      
-      
     </>
   )
 }
