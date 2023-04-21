@@ -4,7 +4,7 @@ function NavTop() {
   return (
     <div className={styles.topnav}>
         <div className = {styles.navlogo}>
-          <a href="/">Assist</a>
+          <a href="/">VirtualSenpai</a>
         </div>
         <div className = {styles.navlinks}>
           <a href="https://elfin-fireman-b6a.notion.site/Boctor-Docs-3aac831e62a947289304c95c476b93f2" target="_blank">Docs</a>
