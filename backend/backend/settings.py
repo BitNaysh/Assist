@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'subject_manager',
-    'assist_chat'
+    'assist_chat',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
