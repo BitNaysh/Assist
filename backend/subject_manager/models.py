@@ -9,6 +9,6 @@ class Assignment(models.Model):
     credits = models.IntegerField(max_length=4)
     priority = models.IntegerField(max_length=5)
     try:
-        priority = priority_dict[(credits, grade)]
+        priority = models.IntegerField(priority_dict[(credits, grade)])
     except:
         priority = 0
