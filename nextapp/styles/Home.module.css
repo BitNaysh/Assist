@@ -130,6 +130,7 @@
 }
 
 .usermessage {
+  display: flex;
   background: #070809;
   padding: 1.5rem;
   color: #ECECF1;
@@ -197,6 +198,7 @@
 .boticon, .usericon {
   margin-right: 1rem;
   border-radius: 0.1rem;
+  
 }
 
 .markdownanswer h1, .markdownanswer h2, .markdownanswer h3 {

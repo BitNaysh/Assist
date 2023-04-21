@@ -57,6 +57,7 @@ export default function Chats() {
       },
       body: JSON.stringify({ message: userInput }),//, history: history
     });
+    
     // console.log(await response.json())
 
     if (!response.ok) {
@@ -67,13 +68,13 @@ export default function Chats() {
     // Reset user input
     setUserInput("");
     const data = await response.json();
-    console.log(data.result.detail)
+    console.log(data)
     if (data.result.error === "Unauthorized") {
       handleError();
       return;
     }
 
-    setMessages((prevMessages) => [...prevMessages, { "message": data.result.answer, "type": "apiMessage" }]);
+    setMessages((prevMessages) => [...prevMessages, { "message": data.result.response.trim(), "type": "apiMessage" }]);
     setLoading(false);
     
   };
@@ -110,7 +111,7 @@ export default function Chats() {
               // The latest message sent by the user will be animated while waiting for a response
                 <div key = {index} className = {message.type === "userMessage" && loading && index === messages.length - 1  ? styles.usermessagewaiting : message.type === "apiMessage" ? styles.apimessage : styles.usermessage}>
                   {/* Display the correct icon depending on the message type */}
-                  {message.type === "apiMessage" ? <Image src = "/docicon.png" alt = "AI" width = "30" height = "30" className = {styles.boticon} priority = {true} /> : <Image src = "/usericon.png" alt = "Me" width = "30" height = "30" className = {styles.usericon} priority = {true} />}
+                  {message.type === "apiMessage" ? <div > <Image src = "/docicon.png" alt = "AI" width = "30" height = "30" className = {styles.boticon} priority = {true} /></div> : <div><Image src = "/usericon.png" alt = "Me" width = "30" height = "30" className = {styles.usericon} priority = {true} /></div>}
                 <div className = {styles.markdownanswer}>
                   {/* Messages are being rendered in Markdown format */}
                   <ReactMarkdown linkTarget = {"_blank"}>{message.message}</ReactMarkdown>
@@ -125,19 +126,19 @@ export default function Chats() {
               <div className = {styles.cloudform}>
             <form onSubmit = {handleSubmit}>
             <textarea 
-            disabled = {loading}
-            onKeyDown={handleEnter}
-            ref = {textAreaRef}
-            autoFocus = {false}
-            rows = {1}
-            maxLength = {512}
-            type="text" 
-            id="userInput" 
-            name="userInput" 
-            placeholder = {loading? "Waiting for response..." : "Type your question..."}  
-            value = {userInput} 
-            onChange = {e => setUserInput(e.target.value)} 
-            className = {styles.textarea}
+              disabled = {loading}
+              onKeyDown={handleEnter}
+              ref = {textAreaRef}
+              autoFocus = {false}
+              rows = {1}
+              maxLength = {512}
+              type="text" 
+              id="userInput" 
+              name="userInput" 
+              placeholder = {loading? "Waiting for response..." : "Type your question..."}  
+              value = {userInput} 
+              onChange = {e => setUserInput(e.target.value)} 
+              className = {styles.textarea}
             />
               <button 
               type = "submit" 

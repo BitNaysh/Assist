@@ -22,23 +22,25 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavTop />
-      <div className="flex">
-        <div>
-          <Sidebar>
-            <ul>
-              <li onClick={() => handleSidebarLinkClick("/")}>
-                <a>Chat</a>
+      <Chats />
+      <div >
+        {/* <div>
+           <Sidebar>
+            <ul className="bg-gray-900 rounded-lg my-8 p-3 ml-5 flex flex-col gap-4">
+              <li  onClick={() => handleSidebarLinkClick("/")}>
+                <a className="text-gray-300 hover:text-gray-200 cursor-pointer">Chat</a>
               </li>
               <li onClick={() => handleSidebarLinkClick("/visualize")}>
-                <a>Visualize</a>
+                <a className="text-gray-300 hover:text-gray-200 cursor-pointer">Visualize</a>
               </li>
             </ul>
-          </Sidebar>
-        </div>
-        <div>
+          </Sidebar> 
+        </div> */}
+        
+        {/* <div>
           {router.pathname === "/" ? <Chats /> : null}
           {router.pathname === "/visualize" ? <Visualize /> : null}
-        </div>
+        </div> */}
       </div>
     </>
   )
