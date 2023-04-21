@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SubjectManagerConfig(AppConfig):
+class TodoApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'subject_manager'
+    name = 'todo_api'
